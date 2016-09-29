@@ -54,7 +54,7 @@ class SwaggerPluginImpl @Inject()(lifecycle: ApplicationLifecycle,
 
   val host = config.getString("swagger.api.host")
     .filter(host => !host.isEmpty)
-    .getOrElse("localhost:9000")
+    .orNull
 
   val title = config.getString("swagger.api.info.title") match {
     case None => ""
